@@ -19,7 +19,6 @@ function Main($arg)
 	
 	$paragraphs = QueryObjects("Paragraph", GetCurrentPage())
 	
-	// TODO: substrings get highlighted
 	foreach ($paragraph in $paragraphs)
 		foreach ($text_object in QueryObjects("Text", $paragraph))
 			
@@ -67,7 +66,11 @@ function Main($arg)
 			// statements
 			foreach ($search_term in $statements)
 				if (String_Contains($text_value, $search_term, false))
-					$occurrences = QueryText($paragraph, $search_term, false)
+					$occurrences1 = QueryText($paragraph, " " + $search_term, false)
+					$occurrences2 = QueryText($paragraph, $search_term + " ", false)
+					$occurrences3 = QueryText($paragraph, Chr(10) + $search_term, false)
+					$occurrences4 = QueryText($paragraph, $search_term + Chr(10), false)
+					$occurrences = Array_Merge($occurrences1, $occurrences2, $occurrences3, $occurrences4)
 					foreach ($occurrence in $occurrences)
 						$occurrence.fontColor = $statement_color
 						$occurrence.bold = true
@@ -76,7 +79,11 @@ function Main($arg)
 			foreach ($search_term in $conditionals)
 				if (String_Contains($text_value, $search_term, false))
 					if (String_FindFirst($text_value, $search_term, 0, false, $pos))
-						$occurrences = QueryText($paragraph, $search_term, false)
+						$occurrences1 = QueryText($paragraph, " " + $search_term, false)
+						$occurrences2 = QueryText($paragraph, $search_term + " ", false)
+						$occurrences3 = QueryText($paragraph, Chr(10) + $search_term, false)
+						$occurrences4 = QueryText($paragraph, $search_term + Chr(10), false)
+						$occurrences = Array_Merge($occurrences1, $occurrences2, $occurrences3, $occurrences4)
 						foreach ($occurrence in $occurrences)
 							$occurrence.fontColor = $if_color
 							$occurrence.bold = true
