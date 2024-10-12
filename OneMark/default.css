@@ -1,0 +1,211 @@
+:root {
+  --select-text-bg-color: #eeeeee;
+  --select-text-font-color: #eeeeee;
+
+  /* enable h1-h6 icons in blockquote */
+  --enable-heading-in-blockquote: true;
+
+  /* h1-h6 icons in blockquote */
+  --blockquote-heading-icons: 🔍,⭐,💡,📝,⚠️,⛔; 
+
+  /* enable code block line number */
+  --enable-code-line-number: true;
+
+  /* LaTeX output format */
+  --enable-latex-to-image: true;
+}
+
+.latex-render, img.latex-render {
+  filter: invert(100%) brightness(200%);
+  background-color: transparent;
+}
+
+.math, .latex, img.latex-render {
+  color: #ffffff !important;
+  background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+}
+
+code {
+  background-color: #090300; /* 3024-night background */
+  color: #d6d5d4;            /* 3024-night text color */
+  font-size: 0.9em;
+}
+
+th, tr {
+  border: 1px solid black;
+}
+
+blockquote {
+  background-color: #E2F5FE;
+}
+
+/*!
+Theme: GitHub Dark (Base), modified for 3024-night
+*/
+
+.hljs {
+  color: #d6d5d4;               /* Base text color */
+  background-color: #090300;     /* 3024-night background */
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: #db2d20; /* Keyword and variable color */
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  color: #01a252; /* Function and class titles */
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  color: #9370DB; /* Attributes, literals, numbers, etc. */
+}
+
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #FF1493 ; /* Strings and regex */
+}
+
+.hljs-built_in,
+.hljs-symbol {
+  color: #db2d20; /* Built-ins and symbols */
+}
+
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  color: #32CD32 ; /* Comments */
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  color: #01a252; /* Tag selectors and pseudo-selectors */
+}
+
+.hljs-section {
+  color: #e8bbd0;
+  font-weight: bold;
+}
+
+.hljs-bullet {
+  color: #b5e8b0; /* Bullet points */
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-addition {
+  color: #fded02;
+  background-color: #01a252;
+}
+
+.hljs-deletion {
+  color: #db2d20;
+  background-color: #090300;
+}
+
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  color: #e2ca1a; /* Punctuation and tags */
+}
+
+/* CodeMirror 3024-night theme styles */
+.cm-s-3024-night.CodeMirror {
+  background: #090300;
+  color: #d6d5d4;
+}
+
+.cm-s-3024-night .CodeMirror-gutters {
+  background: #090300;
+  border-right: 0px;
+}
+
+.cm-s-3024-night .CodeMirror-linenumber {
+  color: #4a4543;
+}
+
+.cm-s-3024-night .CodeMirror-cursor {
+  border-left: 1px solid #d6d5d4;
+}
+
+.cm-s-3024-night div.CodeMirror-selected {
+  background: #4a4543;
+}
+
+.cm-s-3024-night.CodeMirror-focused div.CodeMirror-selected {
+  background: #4a4543;
+}
+
+pre code {
+  counter-reset: line-number;
+  background-color: #090300; /* 3024-night code block background */
+  color: #d6d5d4; /* 3024-night text color */
+}
+
+pre code div::before {
+  counter-increment: line-number;
+  content: counter(line-number);
+  display: inline-block;
+  width: 2em;
+  margin-right: 1em;
+  text-align: right;
+  color: #4a4543; /* 3024-night line number color */
+}
