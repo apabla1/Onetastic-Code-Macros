@@ -1,6 +1,5 @@
 :root {
-  --select-text-bg-color: #eeeeee;
-  --select-text-font-color: #eeeeee;
+  --bg-color: black;
 
   /* enable h1-h6 icons in blockquote */
   --enable-heading-in-blockquote: true;
@@ -12,22 +11,26 @@
   --enable-code-line-number: true;
 
   /* LaTeX output format */
-  --enable-latex-to-image: true;
+  --enable-latex-to-image: false;
 }
 
-.latex-render, img.latex-render {
-  filter: invert(100%) brightness(200%);
-  background-color: transparent;
-}
-
-.math, .latex, img.latex-render {
-  color: #ffffff !important;
-  background-color: transparent;
+* {
+  color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: #eeeeee;
   line-height: 1.2;
   font-weight: bold;
+}
+
+ul, ol {
+  list-style-type: disc;
+  color: white;
+}
+
+ul li, ol li {
+  color: white;
 }
 
 h1 {
@@ -66,6 +69,14 @@ th, tr {
 
 blockquote {
   background-color: #E2F5FE;
+}
+
+code {
+  border: 1px solid white;
+}
+
+pre {
+  border: 1px solid white;
 }
 
 /*!
