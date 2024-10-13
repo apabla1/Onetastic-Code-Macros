@@ -38,7 +38,7 @@ function Main($arg)
 			
 			// comment
 			if ($comment_start)
-				$comment_text = String_Substring($text_value, $comment_pos, String_Length($text_value) - 1)
+				$comment_text = String_Substring($text_value, $comment_pos, String_Length($text_value))
 				$occurrences = QueryText($paragraph, $comment_text, false)
 				foreach ($occurrence in $occurrences)
 					$occurrence.fontColor = $comment_color
