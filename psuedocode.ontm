@@ -1,6 +1,6 @@
 function Main($arg)
 	$bg_color = "#F0F0F0"
-	$font_name = "Courier New"
+	$font_name = "Consolas"
 	$font_color = "#FFFFFF"
 	$font_size = 12
 	$statement_color = "#FF5733"
@@ -10,14 +10,14 @@ function Main($arg)
 	$operator_color = "#FFD700"
 	$parenthesis_color = "#FF33FF"
 	$array_color = "#33FFDD"
-
+	
 	// Pseudocode
 	$statements = Array("function", "return", "end", "for", "to", "while", "do")
 	$conditionals = Array("if", "else", "else if", "then")
 	$operators = Array("<", "<=", ">", ">=", "==", "!=", "+", "-", "*", "/", "%", "<->", "=")
-
+	
 	$paragraphs = QueryObjects("Paragraph", GetCurrentPage())
-
+	
 	foreach ($paragraph in $paragraphs)
 		foreach ($text_object in QueryObjects("Text", $paragraph))
 			
@@ -29,18 +29,16 @@ function Main($arg)
 			$text_object.lang = "yo"
 			$text_object.fontSize = $font_size
 			$text_object.fontColor = "#000000"
-			$text_object.highlightColor = $bg_color
 			$text_value = $text_object.value
 			$comment_mode = false
 			$string_mode = false
 			
 			// flags
-			$comment_start = String_FindFirst($text_value, "(*", 0, false, $comment_pos)
-			$comment_end = String_FindFirst($text_value, "*)", 0, false, $comment_close_pos)
+			$comment_start = String_FindFirst($text_value, "//", 0, false, $comment_pos)
 			
 			// comment
-			if ($comment_start && $comment_end)
-				$comment_text = String_Substring($text_value, $comment_pos, ($comment_close_pos - $comment_pos) + 2)
+			if ($comment_start)
+				$comment_text = String_Substring($text_value, $comment_pos, String_Length($text_value) - 1)
 				$occurrences = QueryText($paragraph, $comment_text, false)
 				foreach ($occurrence in $occurrences)
 					$occurrence.fontColor = $comment_color
@@ -105,3 +103,4 @@ function Main($arg)
 						if ($occurrence.fontColor != $comment_color)
 							$occurrence.fontColor = $parenthesis_color
 							$occurrence.bold = true
+							
